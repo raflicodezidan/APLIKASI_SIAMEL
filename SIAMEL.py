@@ -1813,7 +1813,7 @@ def lihat_cdd():
 @app.route('/risiko_tppu', methods=['POST'])
 def risiko_tppu():
     global processed_df, finalized_df
-    
+
 
     if request.method == 'POST':
         # Upload Excel files
@@ -1949,14 +1949,14 @@ def risiko_tppu():
 
         final_df['No.'] = range(1, len(final_df) + 1)
         # Update MultiIndex untuk kolom
-        final_df = final_df[[ 'No.', 'SID', 'Nama', 'Investor Type', 'Fund Name', 'Amount (IDR Equivalent)', 
-                      'Income Level (IDR)', 'Country of Domicile', 'Age', 
+        final_df = final_df[[ 'No.', 'SID', 'Nama', 'Investor Type', 'Fund Name', 'Amount (IDR Equivalent)',
+                      'Income Level (IDR)', 'Country of Domicile', 'Age',
                       'Risiko Rendah', 'Risiko Sedang', 'Risiko Tinggi', 'Keterangan']]
-        
+
         final_df.columns = pd.MultiIndex.from_tuples([
-            ('No.', ''), ('SID', ''), ('Nama', ''), ('Investor Type', ''), 
-            ('Fund Name', ''), ('Amount (IDR Equivalent)', ''), 
-            ('Income Level (IDR)', ''), ('Country of Domicile', ''), ('Age', ''), 
+            ('No.', ''), ('SID', ''), ('Nama', ''), ('Investor Type', ''),
+            ('Fund Name', ''), ('Amount (IDR Equivalent)', ''),
+            ('Income Level (IDR)', ''), ('Country of Domicile', ''), ('Age', ''),
             ('Risiko Nasabah', 'Rendah'), ('Risiko Nasabah', 'Sedang'), ('Risiko Nasabah', 'Tinggi'), ('Keterangan', '')
             ])
 
@@ -2013,10 +2013,10 @@ def lihat_risiko_tppu():
             processed_df[('Fund Name', '')] = processed_df[('Fund Name', '')].apply(
                 lambda x: '<br>'.join(f"{i+1}. {name.strip()}" for i, name in enumerate(x.split(',')))
             )
-            
+
             # Convert DataFrame to HTML but remove the default header generation
             table_html = processed_df.to_html(classes='table table-striped table-bordered', header=False, index=False, escape=False)
-            
+
             # Define the custom header with rowspan and colspan
             custom_header = """
             <thead>
