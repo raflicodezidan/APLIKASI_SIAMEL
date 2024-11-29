@@ -1,0 +1,323 @@
+/* Atur body dengan animasi background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    animation: changeBackground 30s infinite; /* Ganti latar belakang setiap 15 detik */
+    overflow: hidden; /* Pastikan tidak ada scroll bar yang mengganggu */
+}
+
+/* Definisikan gambar latar belakang dalam animasi */
+@keyframes changeBackground {
+    0% {
+        background-image: url('https://www.sewakantor-update.com/wp-content/uploads/2023/05/thumb-23.webp');
+    }
+    33% {
+        background-image: url('https://www.sewakantor-update.com/wp-content/uploads/2023/05/thumb-23.webp');
+    }
+    66% {
+        background-image: url('https://www.pnm.co.id/web/assets/banner/Gedung-New-Banner.jpg');
+    }
+    100% {
+        background-image: url('https://www.pnm.co.id/web/assets/banner/Gedung-New-Banner.jpg');
+    }
+}
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 1000px;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #007bff 0%, #457b9d 100%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-menu a i {
+    margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+/* Kontainer login dan register */
+.login-container, .register-container {
+    background-color: rgba(216, 216, 216, 0.8); /* Warna putih dengan 80% opacity */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+.rememberme {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: flex-start; /* Menempatkan checkbox di kiri */
+}
+
+.rememberme input[type="checkbox"] {
+    margin-right: 8px; /* Memberikan jarak antara checkbox dan label */
+}
+
+/* Styling label untuk konsistensi desain */
+.rememberme label {
+    color: #333;
+    font-size: 14px;
+
+
+}
+
+/* Styling untuk pesan error */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-group i {
+    margin-right: 10px; /* Jarak antara ikon dan kotak input */
+    color: #000000;
+    font-size: 18px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 10px;
+    padding-left: 35px; /* Tambahkan padding kiri untuk memberi ruang bagi ikon */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Styling khusus untuk grup input password dan ikon mata */
+.password-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.password-group i.fa-lock {
+    margin-right: 10px; /* Jarak antara ikon kunci dan input */
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.password-group i.fa-eye {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #a59c9c;
+    font-size: 18px;
+    bottom: 30%;
+    transform: translateY(-50%);
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Memberikan efek zoom ketika elemen hover */
+.login-container:hover, .register-container:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* Efek perubahan warna border ketika input fokus */
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3768db;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    align-items:center;
+}
+
+/* Efek hover pada tombol */
+button:hover {
+    background-color: #165ba4;
+    transform: translateY(-3px);
+}
+
+/* Efek klik pada tombol */
+button:active {
+    transform: translateY(0);
+}
+
+p {
+    text-align: center;
+    color: #777;
+    margin-top: 20px;
+}
+
+/* Media Queries untuk responsivitas */
+@media (max-width: 768px) {
+    .login-container, .register-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container, .register-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}
+
+/* Styling untuk flash messages */
+.flash-messages {
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style untuk pesan sukses */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Style untuk pesan error */
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+/* Style untuk pesan peringatan */
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    padding: 15px;
+}

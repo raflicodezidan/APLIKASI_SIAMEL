@@ -1,0 +1,193 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffffff, #d3d3d3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 0px; /* Ganti latar belakang setiap 30 detik */
+    overflow: hidden; /* Pastikan tidak ada scroll bar yang mengganggu */
+}
+
+/* Kontainer dashboard */
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 1000px;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #007bff 0%, #457b9d 100%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-menu a i {
+    margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+
+
+/* Kontainer utama */
+.container {
+    padding: 20px;
+    text-align: center;
+    margin-top: 120px;
+    font-size: 30px;
+    color: #000000;
+}
+
+/* Styling tombol */
+.btn {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none; 
+}
+
+/* Warna tombol */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #e4b322;
+    color: #fff;
+}
+
+/* Hover efek pada tombol */
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+
+/* Styling untuk teks lead */
+
+/* Responsif */
+@media (max-width: 768px) {
+    .navbar-brand h1 {
+        font-size: 24px;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px; /* Spasi antar tombol pada layar kecil */
+    }
+}
+
+/* Loading screen */
+#loading-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #007bff;
+}
+
+/* Efek fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Gaya untuk footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #f8f9fa;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Gaya untuk modal logout */
+.modal-logout {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

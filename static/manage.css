@@ -1,0 +1,393 @@
+/* Resetting default styles */
+html, body {
+    height: 100%; /* Pastikan html dan body memiliki tinggi 100% */
+    margin: 0; /* Hapus margin default */
+    overflow: hidden; /* Mencegah scroll pada body */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffffff, #d3d3d3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 0px; /* Ganti latar belakang setiap 30 detik */
+    overflow: hidden; /* Pastikan tidak ada scroll bar yang mengganggu */
+}
+
+/* Kontainer dashboard */
+.dashboard-container {
+    overflow-y: auto; /* Aktifkan scroll vertikal */
+    width: 100%;
+    max-width: 1500px;
+    height: auto;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #007bff 0%, #457b9d 100%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-menu a i {
+    margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+
+.form-container {
+    background-color: #fff; /* Warna latar belakang form */
+    border-radius: 5px; /* Sudut membulat */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+    padding: 20px;
+    max-width: 400px; /* Lebar maksimum form */
+    margin: 0 auto; /* Pusatkan form */
+}
+
+h2 {
+    margin-bottom: 30px; /* Jarak bawah judul */
+    margin-top: 35px;
+    text-align: center; /* Pusatkan judul */
+}
+
+h3 {
+    margin-bottom: 30px; /* Jarak bawah judul */
+    margin-top: 50px;
+    text-align: center; /* Pusatkan judul */
+    opacity: 0; /* Mulai dengan transparan */
+    transform: translateY(20px); /* Pindahkan ke bawah */
+    animation: slideIn 0.5s forwards; /* Tambahkan animasi */
+}
+
+/* Animasi slide-in */
+@keyframes slideIn {
+    to {
+        opacity: 1; /* Menjadi terlihat */
+        transform: translateY(0); /* Kembali ke posisi normal */
+    }
+}
+
+
+.form-group {
+    margin-bottom: 15px; /* Jarak antar elemen form */
+}
+
+label {
+    display: block; /* Label sebagai blok */
+    margin-bottom: 5px; /* Jarak bawah label */
+    font-weight: bold; /* Cetak tebal label */
+}
+
+.form-control {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding dalam input */
+    border: 1px solid #ced4da; /* Warna border */
+    border-radius: 5px; /* Sudut membulat input */
+    box-sizing: border-box; /* Menghitung padding dan border dalam lebar total */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+.form-control:focus {
+    border-color: #80bdff; /* Warna border saat fokus */
+    outline: none; /* Hapus outline default */
+}
+
+/* Style container dengan scrollbar */
+.container {
+    max-height: 600px; /* Membatasi tinggi maksimal */
+    overflow-y: auto; /* Scroll vertikal untuk konten yang melebihi batas */
+    padding: 20px;
+    background-color: #f9f9f9; /* Warna latar belakang */
+    border: 1px solid #ddd; /* Border agar terlihat rapi */
+    border-radius: 5px;
+}
+
+/* Style tombol untuk menambah admin dan user */
+/* Style umum untuk tombol */
+.add-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; /* Warna tombol biru */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    text-align: center;
+    text-decoration: none; /* Menghilangkan underline */
+    transition: background-color 0.3s ease; /* Efek transisi saat hover */
+    animation: slideIn 0.5s forwards;
+}
+
+.add-button:hover {
+    background-color: #0056b3; /* Warna saat tombol dihover */
+}
+
+/* Style untuk memusatkan tombol */
+.center-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Spasi antar tombol */
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    background-color:  #ff4d4d;
+    color: white; /* Menjadikan teks berwarna putih agar kontras */
+    border: none; /* Menghilangkan border jika ada */
+    padding: 8px 12px; /* Menambahkan padding */
+    cursor: pointer; /* Menambahkan kursor pointer */
+    border-radius: 4px; /* Menambahkan border radius jika diinginkan */
+}
+
+.btn-cancel:hover {
+    background-color: rgb(255, 0, 0); /* Mengubah warna saat hover */
+}
+
+
+
+button.btn-danger {
+    background-color: #ff4d4d; /* Warna merah lembut */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button.btn-danger:hover{
+    background-color: rgb(255, 0, 0);
+}
+
+
+/* Style tabel */
+
+
+.container {
+    max-width: 100%; /* Ubah lebar maksimum menjadi 100% */
+    margin: 0 auto; /* Pusatkan kontainer */
+    background-color: #fff; /* Warna latar belakang kontainer */
+    padding: 20px; /* Padding dalam kontainer */
+    border-radius: 5px; /* Sudut membulat */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+}
+
+h2 {
+    margin-bottom: 20px; /* Jarak bawah judul */
+}
+
+.table {
+    width: 100%; /* Lebar penuh */
+    border-collapse: collapse; /* Gabungkan border */
+    margin-bottom: 20px; /* Jarak bawah tabel */
+}
+
+.table th, .table td {
+    padding: 12px; /* Padding dalam sel */
+    text-align: left; /* Rata kiri teks */
+    border: 3px solid #ced5db; /* Batas bawah dan samping sel */
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+}
+
+
+.table th {
+    background-color: #007bff; /* Warna latar belakang header */
+    color: white; /* Warna teks header */
+    font-weight: bold; /* Cetak tebal header */
+}
+
+.table tr:hover {
+    background-color: #deebe3; /* Warna saat hover pada baris */
+}
+
+.btn {
+    padding: 5px 10px; /* Padding dalam tombol */
+    border: none; /* Hapus border */
+    border-radius: 3px; /* Sudut membulat tombol */
+    cursor: pointer; /* Kursor pointer */
+    font-size: 14px; /* Ukuran font tombol */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Warna tombol bahaya */
+    color: #fff; /* Warna teks tombol */
+    
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Warna saat hover */
+}
+/* Style untuk alert pesan penghapusan yang berhasil */
+.alert-success {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Warna hijau yang nyaman untuk dilihat */
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px; /* Ukuran teks sedikit lebih besar agar mudah dibaca */
+}
+
+/* Style untuk tombol close pada notifikasi */
+.alert-dismissible .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px; /* Ukuran lebih besar untuk ikon close */
+}
+
+/* Hover efek untuk alert */
+.alert-success:hover {
+    background-color: #45a049; /* Warna hijau sedikit lebih gelap saat di-hover */
+}
+
+/* Responsif pada perangkat kecil */
+@media screen and (max-width: 768px) {
+    table th, table td {
+        padding: 8px 10px; /* Mengurangi padding untuk layar kecil */
+    }
+    
+    .add-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+}
+/* Animasi fade-in ke atas */
+
+/* Tambahkan animasi pada kontainer dashboard */
+.dashboard-container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Tambahkan animasi fade-in pada navbar */
+.navbar {
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Hover efek untuk tombol */
+
+/* Fade-in untuk notifikasi sukses */
+.alert-success {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animasi untuk tabel */
+.table tr {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInTable 0.5s ease-in-out forwards;
+}
+
+/* Fade-in ke atas untuk baris tabel */
+@keyframes fadeInTable {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.table tr:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.table tr:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+/* Transisi untuk link navbar */
+.navbar-menu a {
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    color: #f8f9fa;
+}
+
+/* Tambahkan animasi untuk container */
+.container {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Hover animasi pada alert close */
+.alert-dismissible .close:hover {
+    transition: transform 0.3s ease-in-out;
+}
+.btn-delete {
+    transition: transform 0.2s ease; /* Transisi halus */
+}
+
+.btn-delete:hover {
+    animation: shake 0.3s ease; /* Menggunakan animasi shake */
+}
+
+/* Animasi goyang */
+@keyframes shake {
+    0% { transform: translate(1px, 0); }
+    25% { transform: translate(-1px, 0); }
+    50% { transform: translate(1px, 0); }
+    75% { transform: translate(-1px, 0); }
+    100% { transform: translate(0, 0); }
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pengkinian</title>
+    <link rel="stylesheet" href="path/to/your/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Memusatkan elemen secara horizontal */
+            justify-content: center; /* Memusatkan elemen secara vertikal (jika tinggi ditentukan) */
+            min-height: 100vh; /* Membuat body mengisi seluruh tinggi viewport */
+            margin: 0; /* Menghilangkan margin default */
+            font-family: 'Poppins', sans-serif; /* Menetapkan font Poppins */
+        }
+
+        h1, h2 {
+            text-align: center; /* Memusatkan teks di header */
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap; /* Membungkus tombol jika ruang tidak cukup */
+            justify-content: center; /* Memusatkan tombol secara horizontal */
+            margin: 20px 0; /* Margin atas dan bawah */
+        }
+
+        .button {
+            font-size: 18px; /* Ukuran font lebih besar */
+            background-color: #28a745; /* Warna tombol */
+            color: white; /* Warna teks tombol */
+            border: none; /* Menghilangkan border default */
+            padding: 10px 20px; /* Padding untuk tombol */
+            border-radius: 5px; /* Sudut melengkung untuk tombol */
+            cursor: pointer; /* Menunjukkan pointer saat hover */
+            margin: 5px; /* Margin antar tombol */
+            transition: background-color 0.3s; /* Efek transisi saat hover */
+        }
+
+        .button:hover {
+            background-color: #237035; /* Warna tombol saat hover */
+        }
+
+        .scrollable-table {
+            max-height: 600px; /* Atur tinggi maksimum sesuai kebutuhan */
+            overflow-y: auto; /* Tambahkan scroll vertikal */
+            border: 3px solid #ddd; /* Tambahkan border untuk tabel */
+            background-color: #f8f9fa; /* Warna latar belakang tabel */
+            border-radius: 5px; /* Tambahkan sudut melengkung */
+            width: 95%; /* Perlebar tabel menjadi 90% dari lebar viewport */
+            margin: 20px 0; /* Margin atas dan bawah */
+        }
+
+        .data {
+            width: 100%; /* Tabel dalam scrollable-table mengisi penuh */
+            border-collapse: collapse; /* Gabungkan border sel */
+        }
+
+        .data th {
+            background-color: #007bff; /* Warna biru untuk header */
+            color: white; /* Warna teks header */
+            padding: 12px; /* Padding untuk header */
+            position: sticky; /* Membuat header tetap terlihat saat scroll */
+            top: 0; /* Posisi di bagian atas saat sticky */
+            z-index: 1; /* Pastikan header tetap di atas konten tabel */
+        }
+
+        .data td {
+            padding: 8px; /* Tambahkan padding */
+            border: 2px solid #ddd; /* Tambahkan border untuk sel */
+        }
+
+        .data tr:hover {
+            background-color: #f0f0f0; /* Warna abu-abu saat hover */
+        }
+
+        .data th, .data td {
+            text-align: center; /* Memusatkan teks dalam sel tabel */
+        }
+
+        /* Media query untuk responsivitas */
+        @media (max-width: 600px) {
+            .button {
+                width: 90%; /* Mengatur lebar tombol menjadi 90% pada layar kecil */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hasil Pengkinian Data</h1>
+
+    <div class="button-container">
+        <button class="button" onclick="window.location.href='{{ url_for('Upload_Pengkinian') }}'">Kembali ke Upload</button>
+        <button class="button" onclick="window.location.href='{{ url_for('download', filename=results.combined_file) }}'">Download Excel Pengkinian Nasabah  </button>
+    </div>
+
+    <h2>Data Individual</h2>
+    <div class="scrollable-table">
+        {{ results.individual_data|safe }}
+    </div>
+
+    <h2>Data Institusi</h2>
+    <div class="scrollable-table">
+        {{ results.institusi_data|safe }}
+    </div>
+
+</body>
+</html>

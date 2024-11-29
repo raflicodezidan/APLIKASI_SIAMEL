@@ -1,0 +1,314 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffffff, #d3d3d3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 0px; /* Ganti latar belakang setiap 30 detik */
+    overflow: hidden; /* Pastikan tidak ada scroll bar yang mengganggu */
+}
+
+/* Kontainer dashboard */
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 1000px;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #007bff 0%, #457b9d 100%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-menu a i {
+    margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+
+/* Section untuk ucapan selamat datang */
+.welcome-section {
+    padding: 40px;
+    background: #f1faee;
+    text-align: center;
+    animation: slideIn 1s ease-out;
+    border-bottom: 1px solid #ddd;
+}
+
+.welcome-section h2 {
+    font-size: 32px;
+    color: #1d3557;
+    margin-bottom: 10px;
+    animation: slideIn 1s ease-out; /* Apply slide-in animation */
+}
+
+.welcome-section p {
+    font-size: 20px;
+    color: #457b9d;
+}
+
+/* Bagian aksi dashboard */
+.dashboard-actions {
+    padding: 30px 40px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.dashboard-actions h3 {
+    font-size: 26px;
+    color: #1d3557;
+    margin-bottom: 20px;
+}
+
+.dashboard-actions ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dashboard-actions ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Jarak antar item yang lebih besar */
+    padding: 0;
+}
+
+.dashboard-actions ul li a {
+    display: flex;
+    flex-direction: column; /* Posisikan ikon di atas teks */
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
+}
+
+.dashboard-actions ul li a i {
+    font-size: 2.5em; /* Memperbesar ikon */
+    margin-bottom: 8px; /* Jarak antara ikon dan teks */
+}
+
+.dashboard-actions ul li a:hover {
+    background-color: #457b9d;
+    transform: translateY(-5px);
+}
+
+
+/* Efek animasi fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efek transisi dari kiri untuk welcome-section */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.dashboard-actions ul {
+    list-style: none; /* Menghilangkan bullet */
+    padding: 0;
+}
+
+.dashboard-actions li {
+    margin: 10px 0; /* Jarak antar item */
+}
+
+.dashboard-actions a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: #333; /* Warna teks */
+    display: flex; /* Menggunakan flexbox untuk menyusun ikon dan teks */
+    align-items: center; /* Vertically center the icon and text */
+}
+
+.dashboard-actions a i {
+    margin-right: 10px; /* Jarak antara ikon dan teks */
+}
+
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .dashboard-container {
+        width: 95%;
+    }
+    
+    .navbar-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-menu li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .dashboard-actions ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section h2 {
+        font-size: 24px;
+    }
+
+    .dashboard-actions ul li a {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+} 
+
+.logo {
+    height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
+    margin-right: 10px; /* Memberi jarak antara logo dan judul */
+    color: #d3dad9c7;
+}
+
+
+/* Modal Profile Style */
+/* Gaya untuk modal */
+.modal {
+    display: none; /* Sembunyikan modal secara default */
+    position: fixed; /* Posisi tetap di layar */
+    z-index: 1000; /* Pastikan modal di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh layar */
+    height: 100%; /* Tinggi penuh layar */
+    overflow: auto; /* Aktifkan scroll jika diperlukan */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang gelap transparan */
+}
+
+/* Gaya untuk konten modal */
+.modal-content {
+    background-color: #fefefe; /* Latar belakang konten modal */
+    margin: 15% auto; /* Margins untuk memusatkan modal */
+    padding: 20px; /* Ruang di dalam konten modal */
+    border: 1px solid #888; /* Garis batas */
+    width: 80%; /* Lebar modal */
+    position: relative; /* Agar tombol tutup bisa diposisikan dengan absolute */
+}
+
+/* Tombol tutup modal */
+.close-profile {
+    color: #aaa; /* Warna default untuk tombol tutup */
+    position: absolute; /* Memungkinkan pemposisian di dalam modal */
+    top: -15px; /* Jarak dari atas modal */
+    right: 5px; /* Jarak dari kanan modal */
+    font-size: 40px; /* Ukuran font lebih besar */
+    font-weight: bold; /* Tebal */
+    padding: 5px; /* Memberikan ruang di sekitar teks */
+    transition: color 0.3s; /* Transisi untuk perubahan warna */
+}
+
+.close-profile:hover,
+.close-profile:focus {
+    color: black; /* Warna saat hover */
+    text-decoration: none; /* Hapus garis bawah */
+    cursor: pointer; /* Tunjukkan kursor pointer */
+}
+
+/* Judul modal */
+.modal-content h2 {
+    font-family: 'Poppins', sans-serif; /* Gunakan font Poppins */
+    font-weight: 600; /* Berat huruf */
+    color: #333; /* Warna teks */
+}
+
+
+
+/* Gaya untuk body modal */
+.modal-body {
+    font-family: 'Poppins', sans-serif; /* Gunakan font Poppins */
+    color: #555; /* Warna teks */
+    line-height: 1.5; /* Jarak antar baris */
+}
+
+/* Tambahkan padding dan margin pada paragraf */
+.modal-body p {
+    margin: 10px 0; /* Margin atas dan bawah */
+}
+
+/* Gaya untuk notifikasi di dalam modal (jika diperlukan) */
+.notification {
+    margin-top: 10px; /* Jarak dari atas */
+    padding: 10px;
+    border-radius: 5px; /* Sudut melengkung */
+}
+
+/* Notifikasi khusus untuk modal profil */
+.notification.admin {
+    background-color: #ffcc00; /* Warna latar belakang untuk admin */
+    color: #333; /* Warna teks */
+}
+
+.notification.user {
+    background-color: #00cc99; /* Warna latar belakang untuk user */
+    color: white; /* Warna teks */
+}

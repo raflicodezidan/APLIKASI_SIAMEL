@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Data untuk Analisis</title>
+    <script>
+        function setFormAction(action) {
+            document.getElementById("uploadForm").action = action;
+        }
+        </script>
+        <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h2>Unggah File untuk Analisis</h2>
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        <label for="file1">File Outstanding:</label>
+        <input type="file" name="file1" >
+
+        <label for="file2">File Individu:</label>
+        <input type="file" name="file2" required>
+
+        <label for="file3">File Institusi:</label>
+        <input type="file" name="file3" required>
+
+        <label for="file4">File Transaksi:</label>
+        <input type="file" name="file4" >
+
+        <div class="button-container">
+            <div class="button-row">
+                <!-- Button 1: Default route "/cdd_edd" -->
+                <input type="submit" class="submit-button btn-green" value="CDD/EDD" onclick="setFormAction('/cdd_edd')">
+
+                <!-- Button 2: Route "/process1" -->
+                <input type="submit" class="submit-button btn-blue" value="Risiko TPPU" onclick="setFormAction('/risiko_tppu')">
+
+                <!-- Button 3: Route "/process2" -->
+                <input type="submit" class="submit-button btn-orange" value="Pengkinian Nasabah" onclick="setFormAction('/pengkinian_nasabah')">
+            </div>
+            <div class="button-row">
+                <!-- Button 4: Route "/process3" -->
+                <input type="submit" class="submit-button btn-purple" value="IRA" onclick="setFormAction('/ira')">
+
+                <!-- Button 5: Route "/process4" -->
+                <input type="submit" class="submit-button btn-red" value="RBS" onclick="setFormAction('/rbs')">
+
+                <!-- Button 6: Route "/process5" -->
+                <input type="submit" class="submit-button btn-yellow" value="SIPESAT" onclick="setFormAction('/SIPESAT')">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

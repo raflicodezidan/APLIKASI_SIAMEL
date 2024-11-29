@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SI AMEL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    .navbar-menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 20px; /* Sesuaikan posisi vertikal sesuai kebutuhan */
+        right: 20px; /* Sesuaikan posisi horizontal sesuai kebutuhan */
+    }
+    .navbar-menu a:hover {
+        background-color: #d3dad9c7 ;
+        transform: translateY(-2px);
+    }
+    
+
+    .navbar-item {
+        display: inline;
+    }
+
+    .navbar-link {
+        text-decoration: none;
+        color: #000; /* Ganti dengan warna yang diinginkan */
+        font-size: 18px; /* Sesuaikan ukuran font */
+    }
+
+    .navbar-link i {
+        margin-right: 5px; /* Memberi jarak antara ikon dan teks */
+    }
+</style>
+<body>
+    <ul class="navbar-menu">
+        <li class="navbar-item">
+            <a href="{{ url_for('admin_dashboard' if session.get('admin_username') else 'dashboard') }}" class="navbar-link">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </li>
+    </ul>
+    
+    
+    <!-- FAQ Section -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Tentang Aplikasi</h2>
+        <div class="accordion" id="faqAccordion">
+
+            <!-- Question 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Tentang Aplikasi Anti Money Laundering (AML)
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Anti Money Laundering (AML) adalah serangkaian prosedur, hukum, dan peraturan yang dirancang untuk mencegah pelaku kriminal mencuci uang hasil kejahatan mereka menjadi uang yang tampak sah. Aplikasi AML membantu lembaga keuangan mendeteksi, memantau, dan melaporkan aktivitas keuangan yang mencurigakan, serta memastikan kepatuhan terhadap regulasi yang berlaku.
+                        <br>
+                        Tujuan Aplikasi Anti Money Laundering (AML) :
+                        <ul> 
+                            <li> 1. Mendeteksi Aktivitas Mencurigakan
+                                Aplikasi AML dirancang untuk mendeteksi aktivitas keuangan yang mencurigakan secara real-time. Dengan menggunakan algoritma canggih dan analisis data, aplikasi ini dapat mengidentifikasi pola-pola transaksi yang tidak wajar, yang mungkin mengindikasikan pencucian uang. Misalnya, transfer dana dalam jumlah besar secara berulang atau transaksi yang tidak sesuai dengan profil aktivitas normal pengguna.</li>
+                            <li>2. Mematuhi Regulasi dan Hukum
+                                Salah satu tujuan utama aplikasi AML adalah memastikan kepatuhan terhadap berbagai regulasi anti-pencucian uang yang berlaku secara lokal maupun internasional. Kepatuhan ini tidak hanya penting untuk menghindari sanksi hukum dan denda, tetapi juga untuk menjaga reputasi dan integritas lembaga keuangan.</li>
+
+                            <li> 3. Mengurangi Risiko Keuangan
+                                Dengan mendeteksi dan mencegah aktivitas pencucian uang, aplikasi AML membantu lembaga keuangan mengurangi risiko finansial yang dapat merugikan secara signifikan. Risiko ini termasuk potensi kerugian finansial langsung dari kegiatan penipuan serta risiko kerusakan reputasi yang dapat berdampak jangka panjang.
+                                 </li>
+                            <li> 4. Melindungi Integritas Sistem Keuangan
+                                AML membantu menjaga integritas sistem keuangan dengan memastikan bahwa dana yang beredar adalah hasil dari aktivitas legal. Dengan demikian, AML berperan penting dalam menciptakan lingkungan yang transparan dan terpercaya bagi semua pelaku ekonomi.
+                                 </li>
+                            <li> 5. Menyediakan Laporan dan Dokumentasi
+                                Aplikasi AML dilengkapi dengan kemampuan untuk membuat laporan dan dokumentasi yang dibutuhkan oleh regulator. Ini termasuk laporan kegiatan mencurigakan (SAR), log audit, dan laporan kepatuhan. Dokumentasi yang baik penting untuk mendukung investigasi dan audit oleh pihak berwenang.
+                                 </li>
+                            <li> 6. Meningkatkan Efisiensi Operasional
+                                Dengan mengotomatisasi banyak proses yang sebelumnya manual, aplikasi AML meningkatkan efisiensi operasional lembaga keuangan. Hal ini memungkinkan tim compliance untuk fokus pada tugas-tugas yang lebih strategis dan kompleks, alih-alih terjebak dalam pekerjaan administratif yang berulang.
+                                 </li>
+                            <li> 7. Menjaga Kepercayaan Pelanggan
+                                Implementasi AML yang efektif membantu membangun dan menjaga kepercayaan pelanggan. Pelanggan merasa lebih aman dan terlindungi ketika mereka tahu bahwa lembaga keuangan mereka memiliki sistem yang kuat untuk mendeteksi dan mencegah aktivitas ilegal.
+                                 </li>
+                            <li> 8. Menyokong Upaya Global Anti-Pencucian Uang
+                                AML bukan hanya tentang kepatuhan individu lembaga, tetapi juga bagian dari upaya global untuk memerangi pencucian uang dan pendanaan terorisme. Dengan berpartisipasi dalam sistem AML yang efektif, lembaga keuangan turut serta dalam usaha kolektif untuk menciptakan dunia yang lebih aman dan adil.
+                                 </li>
+
+                        </ul>
+
+
+                        Undang-Undang Dasar Indonesia yang Mendasari Aplikasi AML
+                        Berikut adalah beberapa undang-undang penting di Indonesia yang menjadi dasar hukum bagi aplikasi AML:
+
+                        <ul> 
+                            <li>Undang-Undang No. 8 Tahun 2010 tentang Pencegahan dan Pemberantasan Tindak Pidana Pencucian Uang
+                                Pasal 2 Ayat 1: "Setiap orang yang menyembunyikan atau menyamarkan asal usul, sumber, lokasi, peruntukan, pengalihan hak-hak atas, atau kepemilikan yang sebenarnya dari harta kekayaan yang diketahui atau patut diduga merupakan hasil tindak pidana sebagaimana dimaksud dalam Pasal 2 Ayat (1) dipidana karena tindak pidana pencucian uang." </li>
+                            <li>Pasal 3: "Setiap orang yang menerima, menguasai, menempatkan, menukarkan, atau menggunakan harta kekayaan yang diketahui atau patut diduga merupakan hasil tindak pidana sebagaimana dimaksud dalam Pasal 2 Ayat (1) dengan maksud menyembunyikan atau menyamarkan asal usul harta kekayaan dipidana karena tindak pidana pencucian uang."
+                                Peraturan OJK Nomor 12/POJK.01/2017 tentang Penerapan Program Anti Pencucian Uang dan Pencegahan Pendanaan Terorisme bagi Lembaga Jasa Keuangan </li>
+                            <li> Pasal 3: "Lembaga Jasa Keuangan wajib menerapkan kebijakan dan prosedur penerapan program anti pencucian uang dan pencegahan pendanaan terorisme sesuai dengan ketentuan yang ditetapkan oleh Otoritas Jasa Keuangan.</li>
+
+                            <li>Pasal 5: "Lembaga Jasa Keuangan wajib melakukan identifikasi, verifikasi, dan pemantauan terhadap nasabah dan transaksi untuk mengantisipasi adanya aktivitas yang mencurigakan."</li>
+
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+  
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Footer Section -->
+        <div class="container mt-5">
+            <footer class="text-center py-4" style="background-color: #f8f9fa; border-top: 2px solid #dee2e6;">
+                <!-- Authors Section -->
+                <div class="mb-5">
+                    <h5 class="text-uppercase text-primary font-weight-bold mb-3" style="font-size: 18px;">Authors</h5>
+                    <p style="font-size: 16px; line-height: 1.8; color: #555;">
+                        <strong>
+                            <span class="d-block mb-2">1. Reza Ramadhan (Project Manager)</span>
+                            <span class="d-block mb-2">2. Rafli Maulana Zidane (Programmer)</span>
+                            <span class="d-block mb-2">3. M. Nur Firdaus (Programmer)</span>
+                            <span class="d-block mb-2">4. Naisya Putri (Dokumentator)</span>
+                        </strong>
+                    </p>
+                </div>
+                
+                <!-- Copyright Section -->
+                <div class="text-center py-3 mt-4" style="background-color: #f8f9fa; border-top: 1px solid #e0e0e0;">
+                    <p style="font-size: 18px; color: #6c757d;">
+                        &copy; 2024 <strong>SI AMEL</strong>. All Rights Reserved.
+                    </p>
+                </div>
+                
+
+ </body>
+ </html>

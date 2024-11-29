@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='analisis.css') }}">
+    <title>Unggah Data untuk Pengkinian Nasabah</title>
+    <script>
+        function setFormAction(action) {
+            document.getElementById("uploadForm").action = action;
+        }
+    </script>
+</head>
+<style>
+    .navbar-menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 20px; /* Sesuaikan posisi vertikal sesuai kebutuhan */
+        right: 20px; /* Sesuaikan posisi horizontal sesuai kebutuhan */
+    }
+    .navbar-menu a:hover {
+        background-color: #d3dad9c7 ;
+        transform: translateY(-2px);
+    }
+    
+
+    .navbar-item {
+        display: inline;
+    }
+
+    .navbar-link {
+        text-decoration: none;
+        color: #000; /* Ganti dengan warna yang diinginkan */
+        font-size: 18px; /* Sesuaikan ukuran font */
+    }
+
+    .navbar-link i {
+        margin-right: 5px; /* Memberi jarak antara ikon dan teks */
+    }
+</style>
+
+ 
+<body>
+    <ul class="navbar-menu">
+        <li class="navbar-item">
+            <a href="{{ url_for('home_analisis') }}" class="navbar-link">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </li>
+    </ul>
+
+    <div class="container mt-5">
+        <h2 class="text-center">Pengkinian Data</h2>
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file_individual">Upload File Individu (Excel):</label>
+                <input type="file" class="form-control" id="file_individual" name="file_individual" required>
+            </div>
+            <div class="form-group">
+                <label for="file_institusi">Upload File Institusi (Excel):</label>
+                <input type="file" class="form-control" id="file_institusi" name="file_institusi" required>
+            </div>
+            <div class="button-container">
+                <div class="button-row">
+                    <input type="submit" class="submit-button btn-orange" value="Upload" onclick="setFormAction('{{ url_for('Pengkinian_Data') }}')">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

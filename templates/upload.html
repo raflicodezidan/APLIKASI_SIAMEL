@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Data Eksternal SIGAP & Internal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='upload.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='modal_logout.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+   
+</head>
+
+<body>
+  
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>SIGAP (DTTOT, DPPSPM, FATF, & JUDI ONLINE)</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li>
+                    <a href="{{ url_for('admin_dashboard' if session.get('admin_username') else 'dashboard') }}">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </a>
+                </li>
+            </ul>
+            
+            
+        </nav>
+
+        <form action="{{ url_for('upload_files') }}" method="POST" enctype="multipart/form-data">
+            <div class="container"s>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-red"> <!-- Tambahkan kelas alert-red -->
+                            {% for message in messages %}
+                                <p>{{ message }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+                <form action="/" method="POST" enctype="multipart/form-data">
+                    <h2>Data Eksternal</h2>
+                    <label for="dttot">DTTOT (.xlsx) :</label>
+                    <input type="file" name="dttot" id="dttot" >
+        
+                    <label for="dppspm">DPPSM (.xlsx) :</label>
+                    <input type="file" name="dppspm" id="dppspm" >
+        
+                    <label for="judionline">Judi Online (.xlsx) :</label>
+                    <input type="file" name="judionline" id="judionline" >
+        
+                    <h2>Data Internal</h2>
+                    <label for="individual">Individual (.xlsx) :</label>
+                    <input type="file" name="individual" id="individual" required>
+        
+                    <label for="institusi">Institusi (.xlsx) :</label>
+                    <input type="file" name="institusi" id="institusi" required>
+        
+                    <div class="button-container">
+                        <button type="submit">Upload dan Bandingkan</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+</body>
+</html>

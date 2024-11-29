@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SI AMEL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <ul class="navbar-menu">
+        <li class="navbar-item">
+            <a href="{{ url_for('admin_dashboard' if session.get('admin_username') else 'dashboard') }}" class="navbar-link">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </li>
+    </ul>
+    
+    <style>
+        .navbar-menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 20px; /* Sesuaikan posisi vertikal sesuai kebutuhan */
+            right: 20px; /* Sesuaikan posisi horizontal sesuai kebutuhan */
+        }
+        .navbar-menu a:hover {
+            background-color: #d3dad9c7 ;
+            transform: translateY(-2px);
+        }
+        
+    
+        .navbar-item {
+            display: inline;
+        }
+    
+        .navbar-link {
+            text-decoration: none;
+            color: #000; /* Ganti dengan warna yang diinginkan */
+            font-size: 18px; /* Sesuaikan ukuran font */
+        }
+    
+        .navbar-link i {
+            margin-right: 5px; /* Memberi jarak antara ikon dan teks */
+        }
+    </style>
+    
+    
+    <!-- FAQ Section -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Frequently Asked Questions (FAQ) - SI AMEL</h2>
+        <div class="accordion" id="faqAccordion">
+
+            <!-- Question 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        1. Apa itu SI AMEL?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        SI AMEL adalah aplikasi yang dirancang untuk membantu PT PNM Investment Management dalam memantau dan mencegah aktivitas pencucian uang. Aplikasi ini menganalisis data nasabah internal dan membandingkannya dengan data eksternal (seperti dari SIGAP) untuk mendeteksi potensi risiko dan aktivitas mencurigakan.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        2. Siapa yang dapat menggunakan SI AMEL?
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        SI AMEL hanya dapat diakses oleh admin yang berwenang dan pengguna terdaftar dari PT PNMIM. Setiap akun harus memiliki izin khusus untuk menggunakan sistem.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        3. Apa saja fitur utama yang tersedia di SI AMEL?
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Fitur utama SI AMEL meliputi:
+                        <ul>
+                            <li>Analisis Data Internal: Memeriksa dan menganalisis data nasabah internal.</li>
+                            <li>Perbandingan dengan Data Eksternal: Membandingkan data nasabah dengan sumber eksternal seperti SIGAP.</li>
+                            <li>Manajemen Nasabah: Mengelola data nasabah (menambah, mengedit, atau menghapus).</li>
+                            <li>Laporan: Menghasilkan dan mengunduh laporan aktivitas mencurigakan atau hasil analisis data.</li>
+                            <li>Manajemen User (untuk Admin): Mengelola akun pengguna yang terdaftar.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        4. Bagaimana cara login ke SI AMEL?
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Untuk login ke SI AMEL, Anda harus memasukkan username dan password yang telah terdaftar. Jika Anda lupa kata sandi, gunakan fitur 'Lupa Kata Sandi' untuk melakukan reset.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        5. Bagaimana cara mengganti kata sandi?
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Untuk mengganti kata sandi, masuk ke menu Pengaturan setelah login, lalu pilih opsi Ganti Kata Sandi. Ikuti instruksi untuk mengubah kata sandi Anda.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        6. Apakah saya dapat mengakses SI AMEL tanpa internet?
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Tidak, SI AMEL hanya bisa diakses melalui internet karena aplikasi ini berbasis web. Pastikan Anda terhubung ke jaringan internet yang stabil.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        7. Bagaimana cara mengunduh laporan dari SI AMEL?
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Setelah analisis data selesai, Anda bisa mengunduh laporan dari halaman Laporan. Pilih laporan yang ingin diunduh, dan sistem akan menghasilkan file dalam format PDF, Excel, atau CSV.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        8. Apa yang harus dilakukan jika saya menemukan aktivitas mencurigakan?
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Jika Anda menemukan aktivitas mencurigakan melalui analisis di SI AMEL, segera laporkan kepada tim kepatuhan atau pihak berwenang internal di PT PNMIM. Sistem juga memungkinkan Anda untuk menandai laporan tersebut sebagai prioritas untuk ditindaklanjuti.
+                    </div>
+                </div>
+            </div>
+
+                <!-- Question 11 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingEleven">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                            9. Apakah data saya aman di SI AMEL?
+                        </button>
+                    </h2>
+                    <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Ya, SI AMEL dirancang dengan fitur keamanan tinggi. Akses ke aplikasi dibatasi hanya untuk pengguna yang terdaftar, dengan otentikasi aman dan log aktivitas untuk setiap tindakan. Selain itu, data dienkripsi dan hanya bisa diakses oleh pengguna yang berwenang.
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Question 12 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwelve">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                            10. Bagaimana cara mengelola akun pengguna?
+                        </button>
+                    </h2>
+                    <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Hanya admin yang dapat mengelola akun pengguna. Melalui menu Manajemen User, admin dapat menambahkan, mengedit, atau menghapus akun pengguna sesuai dengan peran dan izin yang diberikan.
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Question 13 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThirteen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                            11. Apa yang dimaksud dengan fitur Analisis Data Internal di SI AMEL?
+                        </button>
+                    </h2>
+                    <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Fitur Analisis Data Internal memungkinkan admin untuk memeriksa data nasabah internal PT PNMIM. Fitur ini menganalisis pola transaksi dan aktivitas nasabah untuk mendeteksi anomali atau aktivitas yang mencurigakan.
+                    </div>
+                </div>
+    
+                <!-- Question 14 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFourteen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                            12. Apa itu CDD, EDD, PEP, dan BO yang ada di SI AMEL?
+                        </button>
+                    </h2>
+                    <div id="collapseFourteen" class="accordion-collapse collapse" aria-labelledby="headingFourteen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>CDD (Customer Due Diligence): Proses identifikasi dan verifikasi identitas nasabah.</li>
+                                <li>EDD (Enhanced Due Diligence): Proses pemeriksaan nasabah dengan risiko tinggi lebih mendetail.</li>
+                                <li>PEP (Politically Exposed Persons): Nasabah yang merupakan individu yang berpotensi memiliki risiko lebih tinggi terkait pencucian uang.</li>
+                                <li>BO (Beneficial Ownership): Mengidentifikasi siapa sebenarnya pemilik manfaat dari suatu entitas atau akun.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Question 15 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFifteen">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+                            13. Bagaimana saya bisa menghubungi tim support jika ada masalah dengan SI AMEL?
+                        </button>
+                    </h2>
+                    <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingFifteen" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Jika Anda mengalami masalah atau memerlukan bantuan, silakan hubungi tim teknis atau layanan pelanggan melalui email atau nomor telepon yang tertera di halaman Kontak di dalam sistem.
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div class="mb-5 text-center">
+            <h5 class="text-uppercase text-primary font-weight-bold mb-3" style="font-size: 18px;">Authors</h5>
+            <p style="font-size: 16px; line-height: 1.8; color: #555;">
+                <strong>
+                    <span class="d-block mb-2">1. Reza Ramadhan (Project Manager)</span>
+                    <span class="d-block mb-2">2. Rafli Maulana Zidane (Programmer)</span>
+                    <span class="d-block mb-2">3. M. Nur Firdaus (Programmer)</span>
+                    <span class="d-block mb-2">4. Naisya Putri (Dokumentator)</span>
+                </strong>
+            </p>
+        </div>
+        
+        <!-- Copyright Section -->
+        <div class="text-center py-3 mt-4" style="background-color: #f8f9fa; border-top: 1px solid #e0e0e0;">
+            <p style="font-size: 18px; color: #6c757d;">
+                &copy; 2024 <strong>SI AMEL</strong>. All Rights Reserved.
+            </p>
+        </div>
+    
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    </html>
+    

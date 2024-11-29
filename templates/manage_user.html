@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Admin & User</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='modal_logout.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>Manage Admin & User</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="{{ url_for('admin_dashboard') }}"><i class="fas fa-arrow-left"></i> Back</a></li>
+            </ul>
+        </nav>
+
+        
+
+        <div class="container mt-5">
+
+            <div class="center-buttons">
+                <button class="add-button" onclick="toggleForm('adminForm')">Add Admin</button>
+                <button class="add-button" onclick="toggleForm('userForm')">Add User</button>
+            </div>
+
+            <!-- Form Tambah Admin (tersembunyi secara default) -->
+            <!-- Form Tambah Admin (tersembunyi secara default) -->
+            <div id="adminForm" style="display: none;">
+                <h3>Add Admin</h3>
+                <form method="POST" action="{{ url_for('manage_user') }}">
+                    <div class="form-group">
+                        <label for="admin_username">Username Admin</label>
+                        <input type="text" id="admin_username" name="admin_username" class="form-control" placeholder="Username Admin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin_password">Password Admin</label>
+                        <div style="position: relative;">
+                            <input type="password" id="admin_password" name="admin_password" class="form-control" placeholder="Password Admin" required minlength="8">
+                            <i class="fas fa-eye" id="toggleAdminPassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" name="add_admin" class="btn btn-success mt-2">Tambah Admin</button>
+                </form>
+                <button class="btn btn-cancel mt-2" onclick="toggleForm('adminForm')">Cancel</button>
+            </div>
+
+            <!-- Form Tambah User (tersembunyi secara default) -->
+            <div id="userForm" style="display: none;">
+                <h3>Add User</h3>
+                <form method="POST" action="{{ url_for('manage_user') }}">
+                    <div class="form-group">
+                        <label for="user_username">Username User</label>
+                        <input type="text" id="user_username" name="user_username" class="form-control" placeholder="Username User" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_email">Email User</label>
+                        <input type="email" id="user_email" name="user_email" class="form-control" placeholder="Email User" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_nomorhp">Nomor HP User</label>
+                        <input type="text" id="user_nomorhp" name="user_nomorhp" class="form-control" placeholder="Nomor HP User" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_password">Password User</label>
+                        <div style="position: relative;">
+                            <input type="password" id="user_password" name="user_password" class="form-control" placeholder="Password User" required minlength="8">
+                            <i class="fas fa-eye" id="toggleUserPassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" name="add_user" class="btn btn-success mt-2">Tambah User</button>
+                </form>
+                <button class="btn btn-cancel" onclick="toggleForm('userForm')">Cancel</button>
+            </div>
+        
+            <!-- Notifikasi pesan -->
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    <div class="alert alert-dismissible fade show" role="alert">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        
+            
+
+        
+           
+            <!-- Tabel Daftar Admin -->
+            <h2 class="mt-5">Admin List</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Admin Username</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for admin in admins %}
+                        <tr>
+                            <td>{{ admin.username }}</td>
+                            <td>
+                                <form method="POST" action="{{ url_for('manage_user') }}">
+                                    <input type="hidden" name="delete_admin_username" value="{{ admin.username }}">
+                                    <button type="submit" name="delete_admin" class="btn btn-danger btn-delete">Delete Admin</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+            <!-- Tabel Daftar User -->
+            <h2 class="mt-5">User List</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>User Username</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.nomorhp }}</td>
+                            <td>
+                                <form method="POST" action="{{ url_for('manage_user') }}">
+                                    <input type="hidden" name="delete_user_username" value="{{ user.username }}">
+                                    <button type="submit" name="delete_user" class="btn btn-danger btn-delete">Delete User</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+                <h2>Login & Logout List </h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Login Time</th>
+                            <th>Status & Logout Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in login_records %}
+                        <tr>
+                            <td>{{ record['username'] }}</td>
+                            <td>{{ record['role'] }}</td>
+                            <td>{{ record['login_time'] }}</td>
+                            <td>
+                                {% if record['logout_time'] %}
+                                    <span style="color: red;">{{ record['logout_time'] }}</span>
+                                {% else %}
+                                    <span style="color: green;">Online</span>
+                                {% endif %}
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <h2>User Activity </h2>
+                <table class="table table-bordered" >
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Activity</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for log in activity_logs %}
+                        <tr>
+                            <td>{{ log.username }}</td>
+                            <td>{{ log.role }}</td>
+                            <td>{{ log.activity }}</td>
+                            <td>{{ log.timestamp }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            
+
+                
+
+
+
+        </div>
+        
+        
+        <!-- JavaScript untuk menampilkan/menyembunyikan form -->
+        <script>
+        function toggleForm(formId) {
+            var form = document.getElementById(formId);
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+        </script>
+        <script>
+            // Fungsi untuk menyembunyikan notifikasi setelah 5 detik (5000 ms)
+            setTimeout(function() {
+                var alert = document.querySelector('.alert-dismissible');
+                if (alert) {
+                    alert.style.transition = "opacity 0.5s ease";
+                    alert.style.opacity = "0"; // Mulai transisi untuk memudar
+                    setTimeout(function() {
+                        alert.style.display = "none"; // Sembunyikan elemen setelah transisi
+                    }, 500); // Waktu transisi
+                }
+            }, 5000); // Notifikasi akan mulai memudar setelah 5 detik
+        </script>
+        <script>
+            // Toggle password visibility for Admin form
+            document.getElementById('toggleAdminPassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('admin_password');
+                const eyeIcon = this;
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            });
+        
+            // Toggle password visibility for User form
+            document.getElementById('toggleUserPassword').addEventListener('click', function() {
+                const passwordField = document.getElementById('user_password');
+                const eyeIcon = this;
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    eyeIcon.classList.remove('fa-eye');
+                    eyeIcon.classList.add('fa-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    eyeIcon.classList.remove('fa-eye-slash');
+                    eyeIcon.classList.add('fa-eye');
+                }
+            });
+        </script>
+        
+        
+
+        
+        
+</body>
+</html>

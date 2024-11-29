@@ -1,0 +1,109 @@
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+/* Button Container Styling */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-around; /* Space buttons evenly */
+    width: 100%;
+    max-width: 1000px; /* Set a max width for better alignment */
+    margin: 50px 0;
+    padding: 0 50px;
+    gap: 100px; /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons on smaller screens */
+}
+
+/* Button Styling */
+.submit-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 20px;
+    width: 150px; /* Uniform width */
+    height: 150px; /* Uniform height */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: #007BFF;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button i {
+    background-color: #007BFF;
+    color: white;
+    font-size: 24px; /* Ukuran ikon yang lebih standar */
+    width: 50px;     /* Lebar tombol */
+    height: 50px;    /* Tinggi tombol */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Bulat sempurna */
+    margin-bottom: 10px; /* Jarak bawah */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.submit-button i:hover {
+    background-color: #0056b3; /* Warna saat hover */
+    color: #e0e0e0; /* Warna ikon saat hover */
+}
+
+
+.submit-button:hover i {
+    background-color: white;
+    color: #007BFF;
+}
+
+/* Button Text Styling */
+.btn-text {
+    font-size: 14px;
+    color: inherit;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .button-row {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        gap: 15px;
+    }
+
+    .submit-button {
+        width: 90%; /* Wider button on mobile */
+        height: 110px;
+        margin-bottom: 15px;
+    }
+}

@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Warna latar belakang yang lembut */
+    margin: 0;
+    padding: 20px;
+}
+h2 {
+    text-align: center; /* Rata tengah untuk judul */
+    color: #333; /* Warna teks judul */
+}
+form {
+    background-color: #fff; /* Warna latar belakang form */
+    border-radius: 8px; /* Sudut membulat */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+    padding: 20px;
+    max-width: 500px; /* Lebar maksimum form */
+    margin: auto; /* Tengah secara horizontal */
+}
+label {
+    display: block; /* Tampilkan label sebagai block untuk memisahkan */
+    margin: 10px 0 5px; /* Margin antara label dan input */
+    font-weight: bold; /* Teks label tebal */
+}
+input[type="file"] {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Ruang dalam input */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 5px; /* Sudut membulat */
+    box-sizing: border-box; /* Menghitung padding dalam lebar total */
+}
+.submit-button {
+    color: white; /* Warna teks tombol */
+    border: none; /* Tanpa garis border */
+    border-radius: 5px; /* Sudut membulat */
+    padding: 10px 15px; /* Ruang dalam tombol */
+    cursor: pointer; /* Pointer saat hover */
+    font-size: 16px; /* Ukuran font tombol */
+    margin: 10px; /* Margin untuk spasi antar tombol */
+    flex: 1; /* Membuat tombol fleksibel dan seimbang dalam baris */
+    transition: background-color 0.3s; /* Transisi untuk efek hover */
+}
+/* Warna untuk setiap tombol */
+.btn-green {
+    background-color: #28a745; /* Hijau */
+}
+.btn-blue {
+    background-color: #007bff; /* Biru */
+}
+.btn-orange {
+    background-color: #28a745; /* Oranye */
+}
+.btn-red {
+    background-color: #dc3545; /* Merah */
+}
+.btn-purple {
+    background-color: #6f42c1; /* Ungu */
+}
+.btn-teal {
+    background-color: #20c997; /* Teal */
+}
+.btn-pink {
+    background-color: #e83e8c; /* Pink */
+}
+.btn-brown {
+    background-color: #795548; /* Coklat */
+}
+.submit-button:hover {
+    opacity: 0.9; /* Efek hover */
+}
+.button-container {
+    text-align: center; /* Rata tengah untuk tombol */
+    margin-top: 20px; /* Margin atas untuk spasi */
+    display: flex; /* Menggunakan flexbox untuk pengaturan tombol */
+    flex-wrap: wrap; /* Memungkinkan tombol beralih ke baris berikutnya */
+}
+.button-row {
+    display: flex; /* Menggunakan flexbox untuk mengatur tombol dalam satu baris */
+    justify-content: center; /* Rata tengah */
+    width: 100%; /* Memastikan baris tombol menggunakan lebar penuh */
+}       /* Define specific font style for 'Fund Name' column */

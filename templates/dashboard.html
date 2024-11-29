@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboardgaya.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='modal_logout.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            function confirmLogout(event) {
+                event.preventDefault(); // Mencegah aksi default dari link
+                
+                // Tampilkan modal
+                document.getElementById('logoutModal').style.display = 'block';
+            }
+        
+            var modal = document.getElementById('logoutModal');
+            var confirmButton = document.getElementById('confirmLogout');
+            var cancelButton = document.getElementById('cancelLogout');
+            var closeButton = document.getElementsByClassName('close')[0];
+        
+            confirmButton.onclick = function() {
+                window.location.href = "{{ url_for('logout') }}";
+            }
+        
+            cancelButton.onclick = function() {
+                modal.style.display = 'none';
+            }
+        
+            closeButton.onclick = function() {
+                modal.style.display = 'none';
+            }
+        
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            // Menyembunyikan notifikasi setelah 5 detik
+            setTimeout(() => {
+                const notification = document.querySelector('.notification');
+                if (notification) {
+                    notification.style.display = 'none';
+                }
+            }, 5000); // 5000 ms = 5 detik
+            
+            document.querySelector('a[href="{{ url_for('logout') }}"]').addEventListener('click', confirmLogout);
+        });
+    </script>
+</head>
+<body>
+    <!-- Notifikasi Admin/User -->
+    {% if is_admin %}
+    <div class="notification admin">
+        <p>Anda login sebagai <strong>Admin</strong>. Anda memiliki akses penuh ke sistem.</p>
+    </div>
+    {% else %}
+    <div class="notification user">
+        <p>Anda login sebagai <strong>User </strong>. Beberapa fitur mungkin terbatas.</p>
+    </div>
+    {% endif %}
+    
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>Dashboard SI AMEL PNMIM</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="#" id="profileLink"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" id="helpLink"><i class="fas fa-question-circle"></i> Help</a></li>
+                <li><a href="#" id="settingLink"><i class="fas fa-cog"></i> Setting</a></li>
+                <li><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+
+        <div class="welcome-section">
+            <h2>Selamat datang, {{ user.username }}!</h2>
+            <p>Ini adalah dashboard Anti-Money Laundering (AML) Anda.</p>
+        </div>
+
+        <div class="dashboard-actions">
+            <h3>Aksi Tersedia:</h3>
+            <ul>
+                <li><a href="{{ url_for('upload_file_skrining') }}"><i class="fas fa-file-upload"></i> SCREENING<br>Nasabah Baru PNMIM </a></li>
+                <li><a href="{{ url_for('upload_files') }}"><i class="fas fa-exchange-alt"></i> Compare Data <br>Eksternal SIGAP & Internal </a></li>
+                <li><a href="{{ url_for('home_analisis') }}"><i class="fas fa-chart-line"></i> Analisis Data <br>Individual & Institusi</a></li>
+            </ul>
+        </div>
+    <!-- Modal HTML -->
+
+
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-profile">&times;</span>
+            <h2><i class="fas fa-user"></i> User Profile</h2>
+            <hr>
+            <div class="modal-body">
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Nomor HP:</strong> {{ user.nomorhp }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <button id="confirmLogout">Yes</button>
+            <button id="cancelLogout">No</button>
+        </div>
+    </div>
+    
+    
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-settings">&times;</span>
+            <h2><i class="fas fa-cog"></i> Setting</h2>
+            <hr> <!-- Tambahan garis horizontal -->
+            <div class="modal-body">
+                <a href="{{ url_for('settings') }}"><i class="fas fa-key"></i> Change Password</a><br>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal untuk Help -->
+    <div id="helpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-help">&times;</span>
+            <h2><i class="fas fa-question-circle"></i> Help</h2>
+            <hr> <!-- Horizontal line -->
+            <div class="modal-body">
+                <h3>User Guide</h3>
+                <a href="{{ url_for('user_guide') }}"><i class="fas fa-book"></i> View User Guide</a><br>
+                <h3>FAQ</h3>
+                <a href="{{ url_for('faq') }}"><i class="fas fa-question-circle"></i> View FAQ</a><br>
+                <h3>About the App</h3>
+                <a href="{{ url_for('about_app') }}"><i class="fas fa-info-circle"></i> About the App</a>
+                <br>
+                <h3>Email Us:</h3>
+                <a href="mailto:PNMIM@gmail.com" class="email-link"><i class="fas fa-envelope"></i> PNMIM@gmail.com</a>
+                <br>
+                <h3>Call Us:</h3>
+                <a href="tel:+6281385918671" class="phone-link"><i class="fas fa-phone"></i> (+62) 21 2511404</a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- JavaScript untuk modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Ambil elemen modal untuk Settings, Help, dan Profile
+            var settingsModal = document.getElementById('settingsModal');
+            var helpModal = document.getElementById('helpModal');
+            var profileModal = document.getElementById('profileModal'); // Modal profil pengguna
+    
+            // Ambil tombol untuk membuka modal Settings, Help, dan Profile
+            var settingsButton = document.querySelector('#settingLink');
+            var helpButton = document.querySelector('#helpLink');
+            var profileButton = document.querySelector('#profileLink'); // Tombol untuk membuka profil
+    
+            // Ambil elemen span untuk menutup modal
+            var closeSettings = document.getElementsByClassName('close-settings')[0];
+            var closeHelp = document.getElementsByClassName('close-help')[0];
+            var closeProfile = document.getElementsByClassName('close-profile')[0]; // Tombol tutup profil
+    
+            // Ketika tombol Settings diklik, buka modal Settings
+            settingsButton.onclick = function(event) {
+                event.preventDefault();
+                settingsModal.style.display = "block";
+            }
+    
+            // Ketika tombol Help diklik, buka modal Help
+            helpButton.onclick = function(event) {
+                event.preventDefault();
+                helpModal.style.display = "block";
+            }
+    
+            // Ketika tombol Profile diklik, buka modal Profile
+            profileButton.onclick = function(event) {
+                event.preventDefault();
+                profileModal.style.display = "block";
+            }
+    
+            // Ketika pengguna mengklik span (x), tutup modal Settings, Help, dan Profile
+            closeSettings.onclick = function() {
+                settingsModal.style.display = "none";
+            }
+    
+            closeHelp.onclick = function() {
+                helpModal.style.display = "none";
+            }
+    
+            closeProfile.onclick = function() {
+                profileModal.style.display = "none";
+            }
+    
+            // Ketika pengguna mengklik di luar modal, tutup modal
+            window.onclick = function(event) {
+                if (event.target == settingsModal) {
+                    settingsModal.style.display = "none";
+                }
+                if (event.target == helpModal) {
+                    helpModal.style.display = "none";
+                }
+                if (event.target == profileModal) {
+                    profileModal.style.display = "none";
+                }
+            }
+        });
+    </script>
+    
+
+    <!-- Style untuk Notifikasi -->
+    <style>
+        .notification {
+            position: fixed; /* Membuat posisi tetap */
+            top: 10px; /* Jarak dari atas */
+            left: 50%; /* Pusatkan secara horizontal */
+            transform: translateX(-50%); /* Pusatkan elemen */
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            z-index: 1000; /* Pastikan notifikasi di atas elemen lain */
+            transition: opacity 0.5s ease; /* Tambahkan efek transisi */
+        }
+
+        .notification.admin {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        .notification.user {
+            background-color: #00cc99;
+            color: white;
+        }
+    </style>
+
+</body>
+</html>

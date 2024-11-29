@@ -1,0 +1,198 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffffff, #d3d3d3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 0px; /* Ganti latar belakang setiap 30 detik */
+    overflow: hidden; /* Pastikan tidak ada scroll bar yang mengganggu */
+}
+
+/* Kontainer dashboard */
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 1000px;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #007bff 0%, #457b9d 100%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-menu a i {
+    margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+/* Form Container */
+.container {
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-y: auto; /* Membuat kontainer dapat diskroll */
+    height: calc(100vh - 100px); /* Memberikan ruang untuk navbar */
+    scrollbar-width: thin; /* Custom scrollbar width for Firefox */
+    scrollbar-color: #aab4be #f1f1f1; /* Scrollbar color for Firefox */
+}
+
+/* Custom scrollbar for Webkit-based browsers (Chrome, Safari, etc.) */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+    font-weight: 600;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input[type="file"] {
+    padding: 10px;
+    width: 100%;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: #1d3557;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+
+/* Alert styling */
+.alert {
+    padding: 15px;
+    background-color: #f79f1b;
+    color: white;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animasi fade in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-brand h1 {
+        font-size: 24px;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+    }
+
+    .navbar-menu li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+}

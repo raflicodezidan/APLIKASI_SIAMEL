@@ -1,0 +1,93 @@
+        /* Tambahkan aturan untuk tabel */
+        .table {
+            table-layout: auto; 
+            width: 100%; 
+        }
+        /* Judul kolom - rata tengah dan bold */
+        .table th {
+            text-align: center; 
+            font-weight: bold; 
+            background-color: #f2f2f2; 
+            padding: 10px; 
+        }
+        /* Rata tengah untuk kolom tertentu */
+        .table td:nth-child(1), /* Kolom No. */
+        .table td:nth-child(2), /* Kolom SID */
+        .table td:nth-child(3), /* Kolom Nama */
+        .table td:nth-child(4), /* Kolom Investor Type*/
+        .table td:nth-child(6), /* Kolom Amount */
+        .table td:nth-child(7), /* Kolom Country of Domicile */
+        .table td:nth-child(8), /* Kolom Age */
+        .table td:nth-child(9), /* Kolom Rendah */
+        .table td:nth-child(10), /* Kolom Sedang */
+        .table td:nth-child(11),
+        .table td:nth-child(12),
+        .table td:nth-child(13) { /* Kolom Tinggi */
+        text-align: center; /* Rata tengah */
+        padding: 5px; /* Padding untuk ruang */
+        }
+        .table td:nth-child(1) { /* Kolom No. */
+            width: 5px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(2) { /* Kolom SID */
+            width: 20px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(3) { /* Kolom Nama */
+            width: 100px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(4) { /* Kolom Investor Type*/
+            width: 20px;  
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(5) { /* Kolom Fund Name */
+            width: 800px;  
+            font-size: 12px;
+            word-wrap: break-word; 
+            padding: 5px;
+        }
+        .table td:nth-child(6) { /* Kolom Amount */
+            width: 30px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(7) { /* Kolom Country of Domicile */
+            width: 10px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(8) { /* Kolom Age */
+            width: 10px; 
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(9) { /* Kolom Rendah */
+            width: 5px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(10) { /* Kolom Sedang */
+            width: 5px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(11) { /* Kolom Tinggi */
+            width: 5px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(12) { /* Kolom Tinggi */
+            width: 5px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }
+        .table td:nth-child(13) { /* Kolom Tinggi */
+            width: 5px;  
+            font-size: 15px;
+            word-wrap: break-word; 
+        }

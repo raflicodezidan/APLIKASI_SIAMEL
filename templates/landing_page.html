@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAMEL PNM</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='landingpage.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body> 
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <img class='logo'src="{{ url_for('static', filename='PNMIM.jpg') }}" alt="Logo Aplikasi"> <!-- Pastikan Anda memiliki logo di folder static -->
+        <h1>Sistem Informasi Anti Money Laundering (SIAMEL)</h1>
+        <p>Pilih jenis login Anda : </p>
+        <div class="login-options">
+            <a href="{{ url_for('login') }}">Login Sebagai User</a>
+            <a href="{{ url_for('admin_login') }}">Login Sebagai Admin</a>
+        </div>
+        <script>
+            // Setelah halaman dimuat, jalankan fungsi untuk menghilangkan flash message
+            window.onload = function() {
+                // Pilih semua elemen flash message
+                var flashMessages = document.querySelectorAll('.flash-messages');
+        
+                // Atur timeout untuk menghilangkan setiap flash message setelah 5 detik
+                flashMessages.forEach(function(message) {
+                    setTimeout(function() {
+                        message.style.display = 'none';
+                    }, 3000); // 3000/  3 detik
+                });
+            };
+        </script>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Screening Nasabah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center; /* Memusatkan teks dalam kontainer */
+        }
+
+        h2, h4 {
+            color: #333;
+            text-align: center;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 94%;
+            padding: 10px 40px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #007BFF;
+        }
+
+        .table-container {
+            width: 100%;
+            max-height: 600px; /* Batasi tinggi kontainer tabel */
+            overflow-y: auto; /* Tambahkan scroll vertikal */
+            margin-bottom: 20px;
+            border: 1px solid #007BFF;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+
+        table, th, td {
+            border: 1px solid #007BFF;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+            font-weight: 600;
+            position: sticky; /* Membuat kolom judul tetap */
+            top: 0; /* Menetapkan posisi sticky di bagian atas kontainer */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .navbar-menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .navbar-item {
+            display: inline;
+        }
+
+        .navbar-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+
+        .navbar-link i {
+            margin-right: 5px;
+        }
+
+        .alert {
+            padding: 15px;
+            background-color: #f44336;
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar-menu">
+        <li class="navbar-item">
+            <a href="{{ url_for('upload_file_skrining') }}" class="navbar-link">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </li>
+    </ul>
+    <div class="container">
+        <h2>Screening Nasabah Baru</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="Ketik untuk mencari...">
+        </div>
+
+        <h4>Data DTTOT</h4>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Deskripsi</th>
+                        <th>Alamat</th>
+                    </tr>
+                </thead>
+                <tbody id="dttot-table">
+                    {% for row in dttot %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row['Nama'] }}</td>
+                        <td class="info-cell">- {{ row['Deskripsi'] }}</td>
+                        <td>{{ row['Alamat'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tabel Data DPPSPM -->
+        <h4>Data DPPSPM</h4>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Informasi Lain</th>
+                        <th>Alamat</th>
+                    </tr>
+                </thead>
+                <tbody id="dppspm-table">
+                    {% for row in dppspm %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row['Nama'] }}</td>
+                        <td class="info-cell">- {{ row['Informasi Lain'] }}</td>
+                        <td>{{ row['Alamat'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tabel Data Judi Online -->
+        <h4>Data Judi Online</h4>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Rekening</th>
+                        <th>Nomor Rekening</th>
+                        <th>Nama Bank</th>
+                        <th> NIK </th>
+                    </tr>
+                </thead>
+                <tbody id="judionline-table">
+                    {% for row in judionline %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row['NAMA REKENING'] }}</td>
+                        <td>{{ row['Nomor Rekening'] }}</td>
+                        <td>{{ row['Bank'] }}</td>
+                        <td>{{ row['NIK'] }}</td>
+
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Tunggu hingga halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', function () {
+            // Dapatkan elemen notifikasi
+            const alertBox = document.querySelector('.alert');
+
+            // Jika ada notifikasi, sembunyikan setelah 5 detik
+            if (alertBox) {
+                setTimeout(function () {
+                    alertBox.style.display = 'none';
+                }, 5000); // 5000 ms = 5 detik
+            }
+        });
+
+        document.getElementById("search-input").addEventListener("input", function () {
+            const searchQuery = this.value.toLowerCase();
+            const tables = ["dttot-table", "dppspm-table", "judionline-table"];
+            const uniqueResults = {};
+
+            tables.forEach(tableId => {
+                const rows = document.querySelectorAll(`#${tableId} tr`);
+
+                // Reset results for the current table
+                uniqueResults[tableId] = [];
+
+                if (searchQuery === "") {
+                    // Jika pencarian kosong, tampilkan semua baris
+                    rows.forEach(row => {
+                        row.style.display = "";
+                        // Reset highlight
+                        row.querySelectorAll("td").forEach(cell => {
+                            cell.innerHTML = cell.textContent;
+                        });
+                    });
+                } else {
+                    rows.forEach(row => {
+                        let rowMatches = false;
+
+                        row.querySelectorAll("td").forEach(cell => {
+                            const cellText = cell.textContent.toLowerCase();
+                            const regex = new RegExp(`(${searchQuery})`, "gi");
+
+                            if (cellText.includes(searchQuery)) {
+                                rowMatches = true;
+                                cell.innerHTML = cell.textContent.replace(regex, '<span class="highlight">$1</span>');
+                            } else {
+                                cell.innerHTML = cell.textContent;
+                            }
+                        });
+
+                        if (rowMatches) {
+                            const uniqueKey = Array.from(row.cells).map(cell => cell.textContent).join('|');
+                            if (!uniqueResults[tableId].includes(uniqueKey)) {
+                                uniqueResults[tableId].push(uniqueKey);
+                                row.style.display = "";  // Tampilkan baris
+                            } else {
+                                row.style.display = "none";  // Sembunyikan duplikat
+                            }
+                        } else {
+                            row.style.display = "none";  // Sembunyikan jika tidak ada pencocokan
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

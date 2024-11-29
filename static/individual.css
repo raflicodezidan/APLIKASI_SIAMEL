@@ -1,0 +1,184 @@
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ffffff, #d3d3d3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 0px; /* Ganti latar belakang setiap 30 detik */
+    overflow: hidden; /* Pastikan tidak ada scroll bar yang mengganggu */
+}
+
+/* Kontainer dashboard */
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 1000px;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Navbar styling */
+.navbar {
+    background: linear-gradient(90deg, #007bff 0%, #457b9d 100%);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand h1 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-menu a i {
+    margin-right: 8px;
+}
+
+.navbar-menu a:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+}
+
+/* Kontainer dashboard */
+.dashboard-container {
+    width: 100%;
+    max-width: 1500px;
+    height: 1000px;
+    background: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Form styling */
+.form-container {
+    padding: 20px;
+}
+
+h2{
+    font-size: 22px; 
+    font-weight: 600; 
+    color: #000000; 
+    margin-bottom: 15px; 
+    
+}
+.mb-3 {
+    margin-bottom: 1rem; 
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+/* Button styles */
+.btn-group {
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary { background-color: #007bff; color: #fff; }
+.btn-warning { background-color: #ffc107; color: #fff; }
+.btn-success { background-color: #28a745; color: #fff; }
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Gaya untuk ringkasan data */
+.summary-container {
+    background-color: #f9f9f9; /* Latar belakang ringan */
+    border: 1px solid #ccc; /* Garis batas */
+    border-radius: 8px; /* Sudut membulat */
+    padding: 20px; /* Ruang dalam */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+    text-align:justify; /* Pusatkan teks dalam kontainer */
+    margin: 0 auto; /* Pusatkan kontainer */
+    max-width: 600px; /* Atur lebar maksimum */
+}
+
+.summary-title {
+    font-size: 24px; /* Ukuran font judul */
+    font-weight: 600; /* Ketebalan font */
+    margin-bottom: 15px; /* Jarak bawah */
+    color: #333; /* Warna font */
+    text-align: center;
+}
+
+.summary-list {
+    list-style-type: none; /* Menghapus bullet */
+    padding-left: 0; /* Menghapus padding */
+}
+
+.summary-list li {
+    margin-bottom: 10px; /* Jarak antar item */
+    font-size: 18px; /* Ukuran font item */
+}
+
+.download-container {
+    text-align: center; /* Pusatkan tombol unduh */
+}
+.download-container a {
+    text-decoration: none; /* Menghilangkan garis bawah */
+}

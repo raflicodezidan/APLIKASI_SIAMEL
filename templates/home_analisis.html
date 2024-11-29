@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Data untuk Analisis</title>
+    <link rel="stylesheet" href="/static/tampilan_home.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboardgaya.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>Analisis Data Individual & Institusi  </h1>
+            </div>
+            <ul class="navbar-menu">
+                <li>
+                    <a href="{{ url_for('admin_dashboard' if session.get('admin_username') else 'dashboard') }}">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </a>
+                </li>
+            </ul>
+            
+        </nav>
+
+    <div class="button-container">
+        <div class="button-row">
+            <a href="{{ url_for('hal_cdd') }}" class="submit-button">
+                <i class="fas fa-search"></i>
+                <span class="btn-text">CDD & EDD</span>
+            </a>
+            <a href="{{ url_for('hal_risikotppu') }}" class="submit-button">
+                <i class="fas fa-exclamation-circle"></i>
+                <span class="btn-text">Risiko TPPU</span>
+            </a>
+            <a href="{{ url_for('Pengkinian_Data') }}" class="submit-button">
+                <i class="fas fa-user-edit"></i>
+                <span class="btn-text">Pengkinian Nasabah</span>
+            </a>
+        </div>
+        <div class="button-row">
+            <a href="{{ url_for('hal_ira') }}" class="submit-button">
+                <i class="fas fa-file-alt"></i>
+                <span class="btn-text">IRA</span>
+            </a>
+            <a href="{{ url_for('hal_rbs') }}" class="submit-button">
+                <i class="fas fa-clipboard-list"></i>
+                <span class="btn-text">RBS</span>
+            </a>
+            <a href="{{ url_for('hal_sipesat') }}" class="submit-button">
+                <i class="fas fa-user-plus"></i>
+                <span class="btn-text">SIPESAT</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

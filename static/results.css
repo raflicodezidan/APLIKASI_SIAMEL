@@ -1,0 +1,51 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif; /* Menetapkan font Poppins */
+}
+.table-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+}
+th {
+    background-color: #007bff;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:hover {
+    background-color: #e9ecef;
+}
+.title-box {
+    background-color: #e2e3e5;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.25rem;
+}
+h3 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.btn-green {
+    background-color: #28a745;
+    color: white;
+}
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
