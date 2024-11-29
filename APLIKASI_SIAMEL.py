@@ -1607,6 +1607,13 @@ from fuzzywuzzy import process
 
 @app.route('/ira', methods=['POST'])
 def ira():
+    if 'username' not in session and 'admin_username' not in session:
+        flash("Silakan login terlebih dahulu untuk mengakses halaman ini", "warning")
+        return redirect(url_for('landingpage'))
+
+    username = session.get('username') or session.get('admin_username', 'Unknown User')
+    role = 'user' if 'username' in session else 'admin'
+    log_activity(username, role, "Membuat Laporan IRA")
     global processed_df, finalized_df
 
     if request.method == 'POST':
@@ -2233,6 +2240,13 @@ def lihat_cdd():
 
 @app.route('/risiko_tppu', methods=['POST'])
 def risiko_tppu():
+    if 'username' not in session and 'admin_username' not in session:
+        flash("Silakan login terlebih dahulu untuk mengakses halaman ini", "warning")
+        return redirect(url_for('landingpage'))
+
+    username = session.get('username') or session.get('admin_username', 'Unknown User')
+    role = 'user' if 'username' in session else 'admin'
+    log_activity(username, role, "Melakukan Proses Risiko TPPU")
     global processed_df, finalized_df
 
 
