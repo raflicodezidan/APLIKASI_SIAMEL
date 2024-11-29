@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <title>Laporan SIPESAT</title>
+    <link rel="stylesheet" href="/static/style.css"> <!-- Ganti dengan stylesheet Anda -->
+</head>
+<style>
+    .navbar-menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        top: 20px; /* Sesuaikan posisi vertikal sesuai kebutuhan */
+        right: 20px; /* Sesuaikan posisi horizontal sesuai kebutuhan */
+    }
+    .navbar-menu a:hover {
+        background-color: #d3dad9c7 ;
+        transform: translateY(-2px);
+    }
+
+
+    .navbar-item {
+        display: inline;
+    }
+
+    .navbar-link {
+        text-decoration: none;
+        color: #000; /* Ganti dengan warna yang diinginkan */
+        font-size: 18px; /* Sesuaikan ukuran font */
+    }
+
+    .navbar-link i {
+        margin-right: 5px; /* Memberi jarak antara ikon dan teks */
+    }
+</style>
+<body>
+    <ul class="navbar-menu">
+        <li class="navbar-item">
+            <a href="{{ url_for('home_analisis') }}" class="navbar-link">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </li>
+    </ul>
+
+    <h2>SIPESAT</h2>
+    <form id="uploadForm" method="post" enctype="multipart/form-data" action="/sipesat">
+        <label for="year">Tahun:</label>
+        <input type="number" name="year" min="2000" max="2100" required>
+
+        <label for="quarter">Kuartal:</label>
+        <select name="quarter" required>
+            <option value="">Pilih Kuartal</option>
+            <option value="Q1">Q1 (Januari - Maret)</option>
+            <option value="Q2">Q2 (April - Juni)</option>
+            <option value="Q3">Q3 (Juli - September)</option>
+            <option value="Q4">Q4 (Oktober - Desember)</option>
+        </select>
+
+        <label for="file1">File PNMIM-GRIPS-Form-VER20:</label>
+        <input type="file" name="file1" accept=".xls,.xlsx" required>
+
+        <div class="button-container">
+            <div class="button-row">
+                <input type="submit" class="submit-button btn-green" value="Upload">
+            </div>
+        </div>
+    </form>
+</body>
+</html>
